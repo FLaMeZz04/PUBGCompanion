@@ -10,9 +10,6 @@ import com.squareup.picasso.Picasso;
 
 public class TipDescriptionActivity extends AppCompatActivity {
 
-    private TextView description_tricks,title_tricks;
-    private ImageView image_tricks;
-    private ImageView goBack;
     protected void onCreate(Bundle savedInstance)
     {
         super.onCreate(savedInstance);
@@ -23,16 +20,16 @@ public class TipDescriptionActivity extends AppCompatActivity {
 
     private void InitializeControls()
     {
-        description_tricks = findViewById(R.id.description_tricks);
-        title_tricks = findViewById(R.id.title_tricks);
-        image_tricks = findViewById(R.id.image_tricks);
+        TextView description_tricks = findViewById(R.id.description_tricks);
+        TextView title_tricks = findViewById(R.id.title_tricks);
+        ImageView image_tricks = findViewById(R.id.image_tricks);
         String setName = getIntent().getStringExtra("name");
         String setDescription = getIntent().getStringExtra("description");
         String setImage = getIntent().getStringExtra("image");
         title_tricks.setText(setName);
         description_tricks.setText(setDescription);
         Picasso.get().load(setImage).into(image_tricks);
-        goBack = findViewById(R.id.goBack);
+        ImageView goBack = findViewById(R.id.goBack);
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

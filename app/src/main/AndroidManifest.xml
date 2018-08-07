@@ -32,6 +32,7 @@
         <activity android:name=".MapsActivity" />
         <activity android:name=".TipDescriptionActivity" />
         <activity android:name=".NewItemDescriptionActivity" />
+        <activity android:name=".DescriptionActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

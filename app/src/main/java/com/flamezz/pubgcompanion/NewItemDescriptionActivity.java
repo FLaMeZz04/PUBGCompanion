@@ -1,5 +1,6 @@
 package com.flamezz.pubgcompanion;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,10 +24,8 @@ public class NewItemDescriptionActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<Guns> arrayList;
-    private String name,rootName;
-    private TextView textview_header;
-    private ImageView onGoBack;
-    private DatabaseReference databaseReference;
+    private String parentName,rootName;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +33,8 @@ public class NewItemDescriptionActivity extends AppCompatActivity {
         InitializeControls();
         recyclerView = findViewById(R.id.recyclerView2);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-       databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl(
-         "https://pubg-companion-af4fc.firebaseio.com/Items/"+rootName+"/Subitems/"+name);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl(
+                "https://pubg-companion-af4fc.firebaseio.com/Items/" + rootName + "/Subitems/" + parentName);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -46,7 +46,16 @@ public class NewItemDescriptionActivity extends AppCompatActivity {
                     Guns guns = new Guns(name,image);
                     arrayList.add(guns);
                 }
-                WeaponAdapter adapter = new WeaponAdapter(arrayList);
+                WeaponAdapter adapter = new WeaponAdapter(arrayList, new onClcikListener() {
+                    @Override
+                    public void onClick(String name) {
+                        Intent intent = new Intent(NewItemDescriptionActivity.this,DescriptionActivity.class);
+                        intent.putExtra("name",name);
+                        intent.putExtra("rootName",rootName);
+                        intent.putExtra("parentName",parentName);
+                        startActivity(intent);
+                    }
+                });
                 recyclerView.setAdapter(adapter);
             }
 
@@ -66,11 +75,11 @@ public class NewItemDescriptionActivity extends AppCompatActivity {
     private void InitializeControls()
     {
 
-        name = getIntent().getStringExtra("name");
+        parentName = getIntent().getStringExtra("name");
         rootName = getIntent().getStringExtra("parentname");
-        textview_header = findViewById(R.id.textview_header);
-        textview_header.setText(name);
-        onGoBack = findViewById(R.id.onGoBack);
+        TextView textview_header = findViewById(R.id.textview_header);
+        textview_header.setText(parentName);
+        ImageView onGoBack = findViewById(R.id.onGoBack);
         onGoBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

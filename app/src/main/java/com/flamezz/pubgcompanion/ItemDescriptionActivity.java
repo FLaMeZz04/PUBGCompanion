@@ -19,7 +19,6 @@ import com.squareup.picasso.Picasso;
 
 public class ItemDescriptionActivity extends AppCompatActivity {
 
-    private DatabaseReference databaseReference;
     private TextView Title;
     private TextView des_item1;
     private TextView des_item2;
@@ -36,7 +35,7 @@ public class ItemDescriptionActivity extends AppCompatActivity {
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_item_description);
         InitializeControls();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         DatabaseReference Items = databaseReference.child("Items").child(getParentName).child("Subitems").child(getName);
         Items.addValueEventListener(new ValueEventListener() {
             @Override

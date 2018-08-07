@@ -29,10 +29,8 @@ import java.util.ArrayList;
  */
 public class TipsFragment extends Fragment {
 
-    private DatabaseReference databaseReference;
     private ListView listView;
     private ArrayList<Trcks> arrayList;
-    private ImageView goBack;
     public TipsFragment() {
         // Required empty public constructor
     }
@@ -44,7 +42,7 @@ public class TipsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_tips, container, false);
         listView = view.findViewById(R.id.myListView);
-        databaseReference = FirebaseDatabase.getInstance().getReference("Tricks");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Tricks");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

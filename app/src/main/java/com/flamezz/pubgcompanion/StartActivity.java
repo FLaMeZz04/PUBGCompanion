@@ -1,12 +1,10 @@
 package com.flamezz.pubgcompanion;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
+
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,30 +23,29 @@ public class StartActivity extends AppCompatActivity
 
     private HomeFragment homeFragment;
     private ItemFragment itemFragment;
-    private AlertDialog.Builder alertdialog;
     private MapFragment mapFragment;
     private TipsFragment tipsFragment;
     private NewsFragment newsFragment;
-    private ImageView logoImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         final View header = navigationView.getHeaderView(0);
-        logoImage = header.findViewById(R.id.logoImage);
+        ImageView logoImage = header.findViewById(R.id.logoImage);
         String url = "https://firebasestorage.googleapis.com/v0/b/pubg-companion-af4fc.appspot.com/o/pubg_icon.png?alt=media&token=0b7f480d-1c00-4fd2-b0ed-489a1eb99435";
         Glide.with(StartActivity.this).load(url).into(logoImage);
         Initlaize();
@@ -71,7 +68,6 @@ public class StartActivity extends AppCompatActivity
         itemFragment =new ItemFragment();
         tipsFragment = new TipsFragment();
         mapFragment = new MapFragment();
-        alertdialog = new AlertDialog.Builder(this);
 
 
     }
@@ -124,7 +120,7 @@ public class StartActivity extends AppCompatActivity
 
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

@@ -1,7 +1,5 @@
 package com.flamezz.pubgcompanion;
 
-import com.squareup.picasso.RequestCreator;
-
 public class MapsClass {
 
     private String name;

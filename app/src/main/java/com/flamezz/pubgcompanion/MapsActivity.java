@@ -13,9 +13,6 @@ import com.squareup.picasso.Picasso;
 
 public class MapsActivity extends AppCompatActivity {
 
-    private TextView heading_map;
-    private PhotoView map;
-    private ImageView back_button,image_map;
     protected void onCreate(Bundle savedInstance)
     {
         super.onCreate(savedInstance);
@@ -25,10 +22,10 @@ public class MapsActivity extends AppCompatActivity {
 
     private void InitializeControls()
     {
-        heading_map = findViewById(R.id.heading_map);
-        map = findViewById(R.id.map);
-        back_button = findViewById(R.id.back_button);
-        image_map = findViewById(R.id.image_map);
+        TextView heading_map = findViewById(R.id.heading_map);
+        PhotoView map = findViewById(R.id.map);
+        ImageView back_button = findViewById(R.id.back_button);
+        ImageView image_map = findViewById(R.id.image_map);
         String name = getIntent().getStringExtra("NAME");
         String image = getIntent().getStringExtra("IMAGE");
         String new_map = getIntent().getStringExtra("MAP");

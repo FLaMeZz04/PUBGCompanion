@@ -15,10 +15,6 @@ Items()
 }
 
 
-Items(String name)
-{
-    this.name=name;
-}
 Items(String name,String image)
 
 {

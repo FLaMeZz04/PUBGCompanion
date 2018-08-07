@@ -15,9 +15,11 @@ import java.util.ArrayList;
 public class WeaponAdapter extends RecyclerView.Adapter<WeaponAdapter.WeaponViewHolder> {
 
     private ArrayList<Guns> arrayList;
-    WeaponAdapter(ArrayList<Guns> arrayList)
+    private onClcikListener listener;
+    WeaponAdapter(ArrayList<Guns> arrayList,onClcikListener listener)
     {
         this.arrayList=arrayList;
+        this.listener=listener;
     }
     @NonNull
     @Override
@@ -28,9 +30,15 @@ public class WeaponAdapter extends RecyclerView.Adapter<WeaponAdapter.WeaponView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull WeaponViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull WeaponViewHolder holder, final int position) {
         holder.name_text.setText((arrayList.get(position).getName()));
         Picasso.get().load((arrayList.get(position).getImage())).into(holder.name_weapon);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onClick(arrayList.get(position).getName());
+            }
+        });
 
 
     }

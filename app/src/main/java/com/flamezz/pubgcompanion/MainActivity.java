@@ -8,13 +8,13 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    private  static int SPLASH = 3400;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
+        int SPLASH = 3400;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },SPLASH);
+        }, SPLASH);
 
     }
 }

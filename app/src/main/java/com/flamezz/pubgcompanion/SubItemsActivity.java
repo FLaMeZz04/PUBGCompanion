@@ -19,11 +19,8 @@ import java.util.ArrayList;
 
 public class SubItemsActivity extends AppCompatActivity {
 
-    private DatabaseReference databaseReference;
     private RecyclerView recyclerView;
     private ArrayList<Items> arrayList;
-    private ImageView backarrow;
-    private Double capacity_new;
     private String parentName;
     protected void onCreate(Bundle savedInstance)
     {
@@ -31,7 +28,7 @@ public class SubItemsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sub_items);
          parentName = getIntent().getStringExtra("NAME");
          recyclerView = findViewById(R.id.myRecyclerView);
-         backarrow = findViewById(R.id.backArrow);
+        ImageView backarrow = findViewById(R.id.backArrow);
          backarrow.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
@@ -39,7 +36,7 @@ public class SubItemsActivity extends AppCompatActivity {
              }
          });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://pubg-companion-af4fc.firebaseio.com/Items/"+parentName+"/Subitems");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://pubg-companion-af4fc.firebaseio.com/Items/" + parentName + "/Subitems");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

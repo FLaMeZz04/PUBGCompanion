@@ -25,7 +25,6 @@ import java.util.ArrayList;
 public class ItemFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private DatabaseReference databaseReference;
     private ArrayList<Items> arrayList;
     public ItemFragment() {
         // Required empty public constructor
@@ -39,7 +38,7 @@ public class ItemFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_item, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        databaseReference = FirebaseDatabase.getInstance().getReference("Items");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Items");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
