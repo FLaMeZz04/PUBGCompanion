@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90sp">
+
+
+    <TextView
+        android:id="@+id/tricks_text"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:fontFamily="@font/droidsans"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="15sp"
+        android:layout_width="300sp"
+        android:layout_height="50dp" />
+
+
+    <ImageView
+        android:src="@drawable/ic_right_arrow"
+        android:layout_marginTop="-35sp"
+        android:layout_marginStart="360sp"
+        android:layout_width="30sp"
+        android:layout_height="30sp" />
+
+
+
+
+</LinearLayout>

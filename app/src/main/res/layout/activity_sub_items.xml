@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="#8f384149"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/backArrow"
+            android:src="@drawable/ic_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_marginStart="70sp"
+            android:src="@drawable/icon_pubgnew"
+            android:layout_width="80sp"
+            android:layout_height="60sp" />
+
+        <TextView
+            android:fontFamily="@font/volkron"
+            android:text="COMPANION"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:layout_marginTop="15sp"
+            android:layout_width="250sp"
+            android:layout_height="46dp" />
+
+    </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/myRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
