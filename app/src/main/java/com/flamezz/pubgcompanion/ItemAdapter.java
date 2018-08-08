@@ -16,12 +16,14 @@ import java.util.ArrayList;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.RecyclerViewHolder> {
 
-    ArrayList<Items> arrayList;
+    private ArrayList<Items> arrayList;
+    private onClcikListener listener;
     Context context;
 
-    ItemAdapter(ArrayList<Items> arrayList)
+    ItemAdapter(ArrayList<Items> arrayList,onClcikListener listener)
     {
         this.arrayList=arrayList;
+        this.listener=listener;
     }
 
     @NonNull
@@ -42,9 +44,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.RecyclerViewHo
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context,SubItemsActivity.class);
-                    intent.putExtra("NAME",arrayList.get(position).getName());
-                    context.startActivity(intent);
+                  listener.onClick(arrayList.get(position).getName());
                 }
             });
 

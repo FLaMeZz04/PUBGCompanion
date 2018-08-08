@@ -1,6 +1,7 @@
 package com.flamezz.pubgcompanion;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -48,7 +49,28 @@ public class ItemFragment extends Fragment {
                      Items items = details.getValue(Items.class);
                     arrayList.add(items);
                 }
-                ItemAdapter adapter = new ItemAdapter(arrayList);
+                ItemAdapter adapter = new ItemAdapter(arrayList, new onClcikListener() {
+                    @Override
+                    public void onClick(String name) {
+                        switch (name)
+                        {
+                            case "Loot Zones":
+                            {
+                                Intent intent = new Intent(getContext(),LootZoneActivity.class);
+                                startActivity(intent);
+                                break;
+                            }
+                            default:
+                            {
+                                Intent intent = new Intent(getContext(),SubItemsActivity.class);
+                                intent.putExtra("NAME",name);
+                                startActivity(intent);
+                                break;
+                            }
+                        }
+
+                    }
+                });
                 recyclerView.setAdapter(adapter);
             }
 

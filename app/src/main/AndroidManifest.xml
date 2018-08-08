@@ -45,6 +45,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity
+            android:name=".LootZoneActivity"
+            android:label="@string/title_activity_loot_zone"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

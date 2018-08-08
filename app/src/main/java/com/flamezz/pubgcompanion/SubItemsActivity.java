@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -51,18 +52,22 @@ public class SubItemsActivity extends AppCompatActivity {
                 SubItemsAdapter adapter = new SubItemsAdapter(arrayList, new onClcikListener() {
                     @Override
                     public void onClick(String name) {
-                        if (parentName.equals("Bow & Guns") || parentName.equals("Attachments")) {
-                            Intent intent = new Intent(getApplicationContext(),NewItemDescriptionActivity.class);
-                            intent.putExtra("name",name);
-                            intent.putExtra("parentname",parentName);
-                            startActivity(intent);
-                        }
-                        else
-                        {
-                            Intent intent = new Intent(getApplicationContext(), ItemDescriptionActivity.class);
-                            intent.putExtra("new_name", name);
-                            intent.putExtra("parentName", parentName);
-                            startActivity(intent);
+                        switch (parentName) {
+                            case "Bow & Guns":
+                            case "Attachments": {
+                                Intent intent = new Intent(getApplicationContext(), NewItemDescriptionActivity.class);
+                                intent.putExtra("name", name);
+                                intent.putExtra("parentname", parentName);
+                                startActivity(intent);
+                                break;
+                            }
+                            default: {
+                                Intent intent = new Intent(getApplicationContext(), ItemDescriptionActivity.class);
+                                intent.putExtra("new_name", name);
+                                intent.putExtra("parentName", parentName);
+                                startActivity(intent);
+                                break;
+                            }
                         }
 
 
