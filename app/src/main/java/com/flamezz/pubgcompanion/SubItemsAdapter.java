@@ -41,6 +41,8 @@ public class SubItemsAdapter extends RecyclerView.Adapter<SubItemsAdapter.Recycl
             @Override
             public void onClick(View view) {
                 listener.onClick(arrayList.get(position).getName());
+
+
             }
         });
 
