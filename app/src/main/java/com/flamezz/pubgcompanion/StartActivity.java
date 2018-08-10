@@ -26,6 +26,7 @@ public class StartActivity extends AppCompatActivity
     private MapFragment mapFragment;
     private TipsFragment tipsFragment;
     private NewsFragment newsFragment;
+    private RateFragment rateFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,7 @@ public class StartActivity extends AppCompatActivity
         itemFragment =new ItemFragment();
         tipsFragment = new TipsFragment();
         mapFragment = new MapFragment();
+        rateFragment = new RateFragment();
 
 
     }
@@ -115,6 +117,10 @@ public class StartActivity extends AppCompatActivity
 
             } else if (id == R.id.nav_news) {
                 setFragmentNavigation(newsFragment);
+            }
+            else if(id==R.id.nav_rate)
+            {
+                setFragmentNavigation(rateFragment);
             }
 
 
