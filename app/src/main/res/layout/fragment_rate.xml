@@ -38,22 +38,13 @@
          android:layout_width="match_parent"
          android:layout_height="60dp">
 
-         <TextView
-             android:textAlignment="center"
-             android:fontFamily="@font/volkron"
-             android:textSize="18sp"
-             android:text="Name"
-             android:layout_marginStart="10sp"
-             android:layout_marginTop="10sp"
-             android:layout_width="100sp"
-             android:layout_height="40sp" />
 
 
          <EditText
+             android:hint="Name"
              android:inputType="text"
              android:id="@+id/feedback_name"
              android:layout_marginTop="10sp"
-             android:layout_marginStart="100sp"
              android:fontFamily="@font/volkron"
              android:textSize="18sp"
              android:layout_width="match_parent"
@@ -68,22 +59,13 @@
             android:layout_width="match_parent"
             android:layout_height="60dp">
 
-            <TextView
-                android:textAlignment="center"
-                android:fontFamily="@font/volkron"
-                android:textSize="18sp"
-                android:text="Email"
-                android:layout_marginStart="10sp"
-                android:layout_marginTop="10sp"
-                android:layout_width="100sp"
-                android:layout_height="40sp" />
 
 
             <EditText
+                android:hint="Email"
                 android:id="@+id/feedback_email"
                 android:inputType="textEmailAddress"
                 android:layout_marginTop="10sp"
-                android:layout_marginStart="100sp"
                 android:fontFamily="@font/volkron"
                 android:textSize="18sp"
                 android:layout_width="match_parent"
@@ -98,21 +80,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:textAlignment="center"
-                android:fontFamily="@font/volkron"
-                android:textSize="18sp"
-                android:text="Feedback"
-                android:layout_marginStart="10sp"
-                android:layout_marginTop="10sp"
-                android:layout_width="100sp"
-                android:layout_height="40sp" />
-
 
             <EditText
+                android:hint="Your Feedback"
                 android:id="@+id/feedback"
                 android:inputType="text"
-                android:layout_marginTop="50sp"
                 android:fontFamily="@font/volkron"
                 android:textSize="18sp"
                 android:layout_width="match_parent"
@@ -122,16 +94,12 @@
 
 
 
-        <TextView
-
-            android:textAlignment="center"
-            android:text="Rate Us On Scale of 5"
-            android:textSize="15sp"
-            android:fontFamily="@font/volkron"
-            android:layout_marginStart="80sp"
-            android:layout_marginTop="20sp"
-            android:layout_width="200sp"
-            android:layout_height="40dp" />
+       <de.hdodenhof.circleimageview.CircleImageView
+           android:id="@+id/smiley"
+           android:layout_marginTop="20sp"
+           android:layout_marginStart="150sp"
+           android:layout_width="100sp"
+           android:layout_height="80sp" />
 
         <RatingBar
             android:id="@+id/ratingBar"
